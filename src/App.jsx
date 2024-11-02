@@ -13,10 +13,13 @@ function App() {
   }
 
   const [timeSpend, setTimeSpend] = useState(0)
-  const handleMarkAsRead =(time)=>{
-    console.log(time)
+  const handleMarkAsRead =(id,time)=>{
+    // console.log(time)
     const newTimeSpend = timeSpend + time;
     setTimeSpend(newTimeSpend)
+    // console.log('remove bookmark', id)
+    const remainingBookmarks = bookmarks.filter(bookmark => bookmark.id !== id)
+    setBookmarks(remainingBookmarks)
   }
 
   return (
